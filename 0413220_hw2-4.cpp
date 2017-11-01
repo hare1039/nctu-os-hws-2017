@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 		while(process_id++ < process_size)
 			waiting_process.push_back(info(process_id, tmp_arrv.at(process_id - 1), tmp_burst.at(process_id - 1)));
 	}
-	
+
 	info current_process(0, 0, 0);
 	enum LVL{ HIGH_PRIORITY, MEDIUM_PRIORITY, SJF };
 	LVL level(HIGH_PRIORITY);
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 			else
 				j++;
 		}
-		
+
 		if(not high_priority_process.empty() && (level == MEDIUM_PRIORITY || level == SJF))
 		{
 			switch(level)
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 			level = MEDIUM_PRIORITY;
 			time_quantum = time_quantum_medium_priority;
 		}
-		
+
 		if(current_process.is_done(tick))
 		{
 			done_process[current_process.id] = current_process;
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 				level  = SJF;
 			}
 
-			
+
 			if(not source->empty())
 			{
 				current_process = *source->begin();
@@ -170,7 +170,7 @@ int main(int argc, char *argv[])
 	for(int i(1); i <= process_size; i++)
 	{
 		//done_process[i].show();
-		std::cout << done_process[i].id << "\t\t" 
+		std::cout << "P["<<done_process[i].id << "]\t"
 				  << done_process[i].waiting() << "\t\t\t\t"
 				  << done_process[i].turnaround() << std::endl;
 		total_waiting_time += done_process[i].waiting();

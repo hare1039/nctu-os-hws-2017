@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 	for(int i(1); i <= process_size; i++)
 	{
 		//done_process[i].show();
-		std::cout << done_process[i].id << "\t\t" 
+		std::cout << "P["<<done_process[i].id << "]\t"
 				  << done_process[i].waiting() << "\t\t\t\t"
 				  << done_process[i].turnaround() << std::endl;
 		total_waiting_time += done_process[i].waiting();
