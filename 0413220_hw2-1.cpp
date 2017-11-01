@@ -33,7 +33,7 @@ struct info
 			at_tick_start = at_tick;
 		finished++;
 	}
-	int waiting() {return at_tick_start - start;}
+	int waiting() {return at_tick_end - start - burst;}
 	int turnaround() {return at_tick_end - start;}
 
 	void show()
